@@ -1,27 +1,3 @@
-"""import csv
-from typing import List, Dict
-
-def write_to_csv(articles: List[Dict[str, str]], filename: str) -> None:
-    if not articles:
-        print("No articles to write.")
-        return
-
-    fieldnames = [
-        "PubmedID",
-        "Title",
-        "Publication Date",
-        "Non-academic Author(s)",
-        "Company Affiliation(s)",
-        "Corresponding Author Email",
-    ]
-
-    with open(filename, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writeheader()
-        for article in articles:
-            writer.writerow(article)"""
-
-
 import csv
 from typing import List, Dict
 def save_to_csv(articles: list[dict], filename: str):

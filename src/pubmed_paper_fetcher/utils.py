@@ -1,10 +1,8 @@
 import csv
-
 def save_to_csv(articles: list[dict], output_file: str):
     if not articles:
         print("⚠️ No articles to save.")
         return
-
     # Get all unique keys across all articles
     all_keys = set()
     for article in articles:

@@ -1,61 +1,13 @@
-# src/pubmed_paper_fetcher/cli.py
-
-"""import csv
-from fetcher import fetch_pubmed_ids, fetch_pubmed_details, filter_articles_by_affiliation
-
-def save_to_csv(articles, output_file="results.csv"):
-    with open(output_file, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
-        writer.writerow(["PMID", "Title", "Journal", "Affiliations"])
-
-        for article in articles:
-            pmid = article["MedlineCitation"]["PMID"]
-            title = article["MedlineCitation"]["Article"]["ArticleTitle"]
-            journal = article["MedlineCitation"]["Article"]["Journal"]["Title"]
-
-            affiliations = []
-            authors = article["MedlineCitation"]["Article"].get("AuthorList", [])
-            for author in authors:
-                affs = author.get("AffiliationInfo", [])
-                for aff in affs:
-                    affiliations.append(aff.get("Affiliation", ""))
-
-            writer.writerow([pmid, title, journal, "; ".join(affiliations)])
-
-def main():
-    query = input("Enter your PubMed search query: ").strip()
-    max_results = 20
-
-    print(f"\n[INFO] Fetching articles for: {query}")
-    ids = fetch_pubmed_ids(query, max_results)
-    articles = fetch_pubmed_details(ids)
-    filtered_articles = filter_articles_by_affiliation(articles)
-
-    print(f"[INFO] Found {len(filtered_articles)} article(s) from pharma/biotech affiliations.")
-    
-    if filtered_articles:
-        save_to_csv(filtered_articles)
-        print(f"[INFO] Saved to results.csv")
-    else:
-        print("[INFO] No relevant articles found.")
-
-if __name__ == "__main__":
-     main()"""
-
-
-
 import argparse
 import csv
 import json
-
 from .fetcher import (
     fetch_pubmed_ids,
     fetch_pubmed_details,
     filter_articles_by_affiliation,
 )
 
-from .writer import write_to_csv  # ✅ use writer module here
-
+from .writer import write_to_csv  
 
 def main():
     parser = argparse.ArgumentParser(description="Fetch PubMed papers related to pharma/biotech authors.")
@@ -90,7 +42,7 @@ def main():
         return
 
     if args.file:
-        write_to_csv(filtered_articles, args.file)  # ✅ using proper writer
+        write_to_csv(filtered_articles, args.file)  
         print(f"[INFO] Results saved to {args.file}")
     else:
         for article in filtered_articles:
