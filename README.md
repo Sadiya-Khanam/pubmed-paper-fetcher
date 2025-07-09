@@ -38,13 +38,15 @@ Step 3: Install Required Dependencies
  Navigate to the project directory:
  
                cd pubmed_paper_fetcher
-Install the required libraries using Poetry:
+Install the project dependencies (from pyproject.toml):
 
-              poetry add biopython pandas
+              poetry install
+
+This installs all dependencies listed in your pyproject.toml, including biopython, pandas, etc.
 
 Step 4: Run the CLI Tool
 
- Use the following command to fetch papers:
+ Run the CLI command with your search query and output file:
  
              poetry run get-papers-list --query "CRISPR gene therapy" --file results.csv --debug
 
