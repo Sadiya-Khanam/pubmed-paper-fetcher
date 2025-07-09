@@ -2,6 +2,15 @@
 
 This project is a Python-based CLI tool that allows users to search PubMed using any query, then filters the results to only include papers that have at least one author affiliated with a pharmaceutical or biotech company. The output is saved as a CSV file.
 
+
+### Code Organization
+
+The code follows a modular structure:
+- Each functionality is separated into different Python files.
+- CLI, data fetching, utilities, and file writing are divided for better maintainability.
+- The `src/` directory holds the main application code, while `tests/` is a placeholder for unit tests.
+
+
 ##  Project Structure
 
 ![image](https://github.com/user-attachments/assets/082ce326-fce2-4f0c-bc00-94982ff06a53)
